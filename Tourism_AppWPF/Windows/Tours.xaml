@@ -1,0 +1,74 @@
+﻿<Window x:Class="Tourism_AppWPF.Windows.Tours"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tourism_AppWPF.Windows"
+        mc:Ignorable="d"
+        Title="Туры" Height="720" Width="1280" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="/Images/6.jpg" Stretch="UniformToFill" Grid.RowSpan="3"/>
+
+        <DataGrid
+            x:Name="AllTours"
+            Grid.Row="1"
+            Opacity="0.70"
+            IsReadOnly="True"
+            AutoGenerateColumns="False"
+            Margin="20 0">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Клиент" Width="*" Binding="{Binding CLIENT}"/>
+                <DataGridTextColumn Header="Агент" Width="*" Binding="{Binding AGENT}"/>
+                <DataGridTextColumn Header="Тип Тура" Width="*" Binding="{Binding TYPETOUR}"/>
+                <DataGridTextColumn Header="Столица" Width="*" Binding="{Binding COUNTRY}"/>
+                <DataGridTextColumn Header="Дата отправлния" Width="*" Binding="{Binding DepartureDate}"/>
+                <DataGridTextColumn Header="Дата прибытия" Width="*" Binding="{Binding ArrivalDate}"/>
+                <DataGridTextColumn Header="Аэропорт" Width="*" Binding="{Binding AIRLANE}"/>
+                <DataGridTextColumn Header="Отель" Width="*" Binding="{Binding HOTEL}"/>
+                <DataGridTextColumn Header="Кол-во отдыхащих" Width="*" Binding="{Binding COUNTTOURIST}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0">
+            <Button
+                x:Name="BtnBack"
+                Height="60"
+                Width="200"
+                Content="Назад"
+                FontSize="30"
+                Margin="10 0"
+                FontFamily="Comic Sans MS"
+                Click="BtnBack_Click"
+                Background="Bisque"/>
+
+            <TextBlock
+                Margin="30 0"
+                Height="50"
+                Width="100"
+                Text="Поиск:"
+                FontSize="30"
+                Foreground="White"
+                FontFamily="Comic Sans MS"/>
+
+            <TextBox
+                x:Name="SearchTBCL"
+                Height="50"
+                Width="300"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="30"
+                FontFamily="Comic Sans MS"
+                SelectionChanged="SearchTBCL_SelectionChanged"
+                />
+
+        </StackPanel>
+
+    </Grid>
+</Window>
